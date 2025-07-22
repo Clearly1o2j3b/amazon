@@ -1,67 +1,132 @@
+/* NEW: Define color variables for easy management */
+:root {
+    --color-primary: #E57373; /* Coral */
+    --color-primary-dark: #D81B60;
+    --color-secondary: #4DB6AC; /* Teal */
+    --color-secondary-dark: #00796B;
+    --color-charcoal: #36454F;
+    --color-cream: #FDFBF8;
+}
+
 html {
     scroll-behavior: smooth;
 }
+
+/* NEW: Animated Gradient Background */
 body {
-    background-color: #FEFEFE;
+    background: linear-gradient(300deg, #fdfbf8, #f8c8dc, #b2dfdb);
+    background-size: 180% 180%;
+    animation: bodyGradient 15s ease infinite;
+    color: var(--color-charcoal);
 }
-.slider-container {
-    scroll-behavior: smooth;
+
+@keyframes bodyGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+
+/* --- Card & Interactive Element Styling --- */
+
 .product-card {
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform-origin: center bottom;
+    cursor: pointer;
 }
 .product-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+    transform: translateY(-12px) scale(1.03);
+    /* NEW: Enhanced glow effect */
+    box-shadow: 0 20px 40px -10px rgba(229, 115, 115, 0.3), 0 0 15px rgba(77, 182, 172, 0.2);
 }
+
+/* NEW: Glassmorphism effect for cards */
+.glassmorphism-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+.glassmorphism-card:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* NEW: Button glow effect */
+.btn-glow {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-glow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px 0 rgba(216, 27, 96, 0.3);
+}
+
+/* NEW: Slider Buttons */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 9999px;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+    color: var(--color-secondary);
+    transition: all 0.3s ease;
+}
+.slider-btn:hover {
+    background-color: var(--color-secondary);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* --- Navigation & Text Styling --- */
 .nav-link {
     position: relative;
     transition: color 0.3s ease;
+    font-weight: 500;
 }
 .nav-link:after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #E8B4B8;
-    transition: width 0.3s ease;
+    bottom: -4px; /* Move underline down a bit */
+    left: 50%;
+    transform: translateX(-50%);
+    /* UPDATE: Use new color variables */
+    background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+    transition: width 0.4s ease;
 }
 .nav-link:hover:after {
     width: 100%;
 }
+
+/* NEW: Gradient text */
+.gradient-text {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.price-tag {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+}
+
+/* --- General & Section Styling --- */
 .section {
     display: none;
-    animation: fadeIn 0.6s ease-in forwards;
+    animation: fadeIn 0.8s ease-in-out forwards;
 }
 .section.active {
     display: block;
-}
-.subcategory-btn.active {
-    background-color: #E8B4B8;
-    color: white;
-    border-color: #E8B4B8;
-}
-.price-tag {
-    background: linear-gradient(135deg, #E8B4B8 0%, #D282A6 100%);
-    color: white;
-}
-.affiliate-disclosure {
-    background: repeating-linear-gradient(
-        45deg,
-        #F5E6E8,
-        #F5E6E8 10px,
-        #F9E8E9 10px,
-        #F9E8E9 20px
-    );
-}
-.hover-grow {
-    transition: transform 0.3s ease;
-}
-.hover-grow:hover {
-    transform: scale(1.05);
 }
 .parallax {
     background-attachment: fixed;
@@ -69,11 +134,45 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.slider-container {
+    scroll-behavior: smooth;
+}
+
+/* NEW: Refined Floating Animation */
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
+    50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
 .floating {
-    animation: float 4s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
+}
+
+
+/* --- NEW: Scroll-Triggered Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.6, 0.2, 0.1, 1);
+    transition-delay: var(--delay, 0s);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Directional reveal animations */
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-up { transform: translateY(40px); }
+.reveal-fade { transform: translateY(0); }
+.reveal-zoom { transform: scale(0.9); }
+
+.reveal.active.reveal-left,
+.reveal.active.reveal-right,
+.reveal.active.reveal-up,
+.reveal.active.reveal-fade,
+.reveal.active.reveal-zoom {
+    transform: none;
 }

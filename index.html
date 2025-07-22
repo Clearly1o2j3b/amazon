@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy & Chic Finds - Curated Amazon Picks for Stylish Living</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-serif text-accent-dark cursor-pointer hover-grow" onclick="showSection('home')">
+                        Cozy & Chic Finds
+                    </h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#" class="nav-link text-accent-dark px-3 py-2" onclick="showSection('home')">Home</a>
+                        <a href="#" class="nav-link text-accent-dark px-3 py-2" onclick="showSection('home-essentials')">Home Essentials</a>
+                        <a href="#" class="nav-link text-accent-dark px-3 py-2" onclick="showSection('fashion-finds')">Fashion Finds</a>
+                        <a href="#" class="nav-link text-accent-dark px-3 py-2" onclick="showSection('blog')">Blog</a>
+                        <a href="#" class="nav-link text-accent-dark px-3 py-2" onclick="showSection('about')">About</a>
+                        <a href="#" class="nav-link text-accent-dark px-3 py-2" onclick="showSection('contact')">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-accent-dark">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="nav-link block px-3 py-2 text-accent-dark" onclick="showSection('home'); toggleMobileMenu()">Home</a>
+                <a href="#" class="nav-link block px-3 py-2 text-accent-dark" onclick="showSection('home-essentials'); toggleMobileMenu()">Home Essentials</a>
+                <a href="#" class="nav-link block px-3 py-2 text-accent-dark" onclick="showSection('fashion-finds'); toggleMobileMenu()">Fashion Finds</a>
+                <a href="#" class="nav-link block px-3 py-2 text-accent-dark" onclick="showSection('blog'); toggleMobileMenu()">Blog</a>
+                <a href="#" class="nav-link block px-3 py-2 text-accent-dark" onclick="showSection('about'); toggleMobileMenu()">About</a>
+                <a href="#" class="nav-link block px-3 py-2 text-accent-dark" onclick="showSection('contact'); toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Homepage Section -->
+    <section id="home" class="section active">
+        <!-- Content from previous HTML -->
+    </section>
+
+    <!-- Home Essentials Section -->
+    <section id="home-essentials" class="section">
+        <!-- Content from previous HTML -->
+    </section>
+
+    <!-- Fashion Finds Section -->
+    <section id="fashion-finds" class="section">
+        <!-- Content from previous HTML -->
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <!-- Content from previous HTML -->
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <!-- Content from previous HTML -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <!-- Content from previous HTML -->
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-accent-dark text-white pt-16 pb-8">
+        <!-- Content from previous HTML -->
+    </footer>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#F9E8E9',
+                            DEFAULT: '#E8B4B8',
+                            dark: '#D282A6'
+                        },
+                        secondary: {
+                            light: '#F5E6E8',
+                            DEFAULT: '#D4B5A0',
+                            dark: '#A49393'
+                        },
+                        accent: {
+                            light: '#F8F8F8',
+                            DEFAULT: '#67595E',
+                            dark: '#2D2D2D'
+                        }
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Poppins', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

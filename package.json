@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@aws-sdk/client-product-advertising-api": "^3.525.0"
-  }
-}

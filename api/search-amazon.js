@@ -1,24 +1,14 @@
-// We need a special library from Amazon to help create the request
 const { ProductAdvertisingAPIv1 } = require("@aws-sdk/client-product-advertising-api");
 
-// This is the main function that Vercel will run
-// It takes a request (req) and response (res) object
 export default async function handler(req, res) {
-  // 1. Check if the request is a POST request
-  if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method Not Allowed' });
-  }
-
-  // 2. Your secret keys and partner tag, securely loaded from environment variables
+  // Your secret keys are loaded from Vercel's Environment Variables
   const ACCESS_KEY = process.env.AWS_ACCESS_KEY_ID;
-  const SECRET_KEY = process.env.AWS_SECRET_KEY;
+  const SECRET_KEY = process.env.AWS_SECRET_KEY_1; // Make sure this matches the name you used in Vercel
   const PARTNER_TAG = process.env.AMAZON_PARTNER_TAG;
-  const REGION = "us-east-1"; // Change this if your account is in a different region
+  const REGION = "us-east-1";
 
-  // 3. Get the keywords and category sent from your website
   const { keywords, category } = req.body;
 
-  // 4. Create the Amazon API client
   const paapi = ProductAdvertisingAPIv1.fromIni({
     accessKeyId: ACCESS_KEY,
     secretAccessKey: SECRET_KEY,
@@ -26,11 +16,10 @@ export default async function handler(req, res) {
     region: REGION
   });
 
-  // 5. Define what we want to get back from Amazon
   const searchParams = {
     Keywords: keywords,
     SearchIndex: category,
-    ItemCount: 10, // How many products to fetch
+    ItemCount: 10,
     Resources: [
       "Images.Primary.Medium",
       "ItemInfo.Title",
@@ -39,10 +28,8 @@ export default async function handler(req, res) {
   };
 
   try {
-    // 6. Make the actual request to Amazon
     const response = await paapi.searchItems(searchParams);
-
-    // 7. Simplify the complex response from Amazon into a clean list
+    
     const products = response.SearchResult.Items.map(item => ({
       title: item.ItemInfo?.Title?.DisplayValue || 'No title available',
       url: item.DetailPageURL,
@@ -50,7 +37,6 @@ export default async function handler(req, res) {
       price: item.Offers?.Listings?.[0]?.Price?.DisplayAmount || null
     }));
 
-    // 8. Send the clean list of products back to your frontend
     res.status(200).json(products);
 
   } catch (error) {

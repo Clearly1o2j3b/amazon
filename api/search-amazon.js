@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   // 2. Your secret keys and partner tag, securely loaded from environment variables
   const ACCESS_KEY = process.env.AWS_ACCESS_KEY_ID;
-  const SECRET_KEY = process.env.AWS_SECRET_KEY;
+  const SECRET_ACCESS_KEY_1 = process.env.AWS_SECRET_ACCESS_KEY_1;
   const PARTNER_TAG = process.env.AMAZON_PARTNER_TAG;
   const REGION = "us-east-1"; // Change this if your account is in a different region
 

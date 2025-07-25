@@ -1,0 +1,2303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mother's Haven - Pregnancy & Lactation Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #e83e8c;
+            --primary-light: #f8c6d0;
+            --primary-dark: #c2185b;
+            --secondary: #6ab7ff;
+            --secondary-light: #c6e2f8;
+            --secondary-dark: #1976d2;
+            --accent: #ff9eb5;
+            --light: #fdf6f0;
+            --dark: #2a2a2a;
+            --text-dark: #5a5a5a;
+            --text-light: #7a7a7a;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .logo:hover i {
+            transform: rotate(15deg);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        nav a:hover::before, nav a.active::before {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(232, 62, 140, 0.1) 0%, rgba(106, 183, 255, 0.1) 100%);
+            padding: 120px 0 100px;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23e83e8c" opacity="0.03" d="M0,0 L100,0 L100,100 Q50,80 0,100"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+            line-height: 1.2;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(232, 62, 140, 0.4);
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover::after {
+            opacity: 1;
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .floating-element-1 {
+            top: 20%;
+            left: 5%;
+            font-size: 5rem;
+            color: var(--primary);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element-2 {
+            bottom: 15%;
+            right: 8%;
+            font-size: 4rem;
+            color: var(--secondary);
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            display: none;
+            position: relative;
+        }
+
+        section.active {
+            display: block;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .card-img i {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--white);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .card-button:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Feature Cards */
+        .feature-card {
+            display: flex;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            flex: 0 0 80px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+        }
+
+        .feature-content {
+            padding: 25px;
+            flex: 1;
+        }
+
+        /* Accordion */
+        .accordion {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .accordion:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-header {
+            padding: 25px;
+            background-color: var(--primary);
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .accordion-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-content.open {
+            padding: 25px;
+            max-height: 1000px;
+        }
+
+        .accordion-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .accordion-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .accordion-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Form Styling */
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(135deg, rgba(232, 62, 140, 0.05) 0%, rgba(106, 183, 255, 0.05) 100%);
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .testimonial-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin: 20px;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .testimonial.active {
+            opacity: 1;
+        }
+
+        .testimonial::before {
+            content: '\201C';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: var(--primary-light);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--primary-light);
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        /* Pregnancy Tracker */
+        .tracker-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .tracker-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tracker-body {
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .tracker-progress {
+            width: 100%;
+            height: 10px;
+            background: var(--primary-light);
+            border-radius: 5px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .tracker-progress-bar {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+        }
+
+        .tracker-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .tracker-week {
+            text-align: center;
+        }
+
+        .tracker-week h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        .tracker-week p {
+            color: var(--text-light);
+        }
+
+        .tracker-details {
+            display: flex;
+            gap: 30px;
+        }
+
+        .tracker-baby, .tracker-mom {
+            flex: 1;
+        }
+
+        .tracker-baby h4, .tracker-mom h4 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .tracker-baby ul, .tracker-mom ul {
+            padding-left: 20px;
+        }
+
+        .tracker-baby li, .tracker-mom li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .tracker-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Daily Tips */
+        .daily-tip {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .daily-tip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .daily-tip h3 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .daily-tip h3 i {
+            color: var(--primary);
+        }
+
+        .daily-tip p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Video Gallery */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 180px;
+            background: var(--dark);
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .video-thumbnail img {
+            opacity: 1;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .video-card:hover .play-button {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .video-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            padding: 80px 0 30px;
+            color: var(--white);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23fdf6f0" d="M0,0 L100,0 L100,100 Q50,80 0,100"></path></svg>');
+            background-size: cover;
+        }
+        
+        .dark-mode footer::before {
+             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%231a1a1a" d="M0,0 L100,0 L100,100 Q50,80 0,100"></path></svg>');
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--white);
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            display: inline-block;
+            padding: 5px 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form {
+            margin-top: 20px;
+        }
+
+        .newsletter-form input {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .newsletter-form button {
+            width: 100%;
+            padding: 12px;
+            background: var(--white);
+            color: var(--primary);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(232, 62, 140, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --light: #1a1a1a;
+            --white: #2a2a2a;
+            --text-dark: #e0e0e0;
+            --text-light: #b0b0b0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-mode .hero {
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.8) 0%, rgba(40, 40, 40, 0.8) 100%);
+        }
+
+        .dark-mode .card,
+        .dark-mode .form-container,
+        .dark-mode .daily-tip,
+        .dark-mode .accordion,
+        .dark-mode .testimonial {
+            background: var(--white);
+        }
+
+        .dark-mode .form-group input,
+        .dark-mode .form-group textarea,
+        .dark-mode .form-group select {
+            background: #333;
+            border-color: #444;
+            color: var(--text-dark);
+        }
+
+        .dark-mode .testimonials {
+            background: linear-gradient(135deg, rgba(25, 25, 25, 0.8) 0%, rgba(40, 40, 40, 0.8) 100%);
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            z-index: 1001;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero {
+                padding: 100px 0 80px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2.3rem;
+            }
+            
+            .tracker-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px;
+            }
+
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                z-index: 1000;
+                transition: var(--transition);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            nav ul.show {
+                display: flex;
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero {
+                padding: 80px 0 60px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-element {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+            
+            .testimonial {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="dark-mode-toggle" id="darkModeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-baby"></i>
+                <h1>Mother's Haven</h1>
+            </a>
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="pregnancy">Pregnancy Guide</a></li>
+                    <li><a href="#" class="nav-link" data-page="postpartum">Postpartum Care</a></li>
+                    <li><a href="#" class="nav-link" data-page="breastfeeding">Breastfeeding</a></li>
+                    <li><a href="#" class="nav-link" data-page="nutrition">Nutrition</a></li>
+                    <li><a href="#" class="nav-link" data-page="ask">Ask a Midwife</a></li>
+                    <li><a href="#" class="nav-link" data-page="community">Community</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="active">
+        <div class="hero">
+            <div class="floating-element floating-element-1">
+                <i class="fas fa-baby-carriage"></i>
+            </div>
+            <div class="floating-element floating-element-2">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <div class="hero-content">
+                <h2>Empowering Your Journey to Motherhood</h2>
+                <p>Expert guidance, compassionate support, and evidence-based resources for every stage of your pregnancy, birth, and postpartum experience.</p>
+                <button class="cta-button"><span>Explore Our Resources</span></button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Personalized Support System</h2>
+                <p>Comprehensive tools and resources tailored to your unique motherhood journey</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="card-img" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Interactive Pregnancy Tracker</h3>
+                        <p>Personalized weekly updates on your baby's development, symptoms to expect, and preparation checklists tailored to your due date.</p>
+                        <a href="#" class="card-button">Start Tracking</a>
+                    </div>
+                </div>
+                <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="card-img" style="background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Nutrition & Meal Planning</h3>
+                        <p>Customized meal plans, recipes, and nutritional guidance for each trimester and breastfeeding period based on your dietary preferences.</p>
+                        <a href="#" class="card-button">View Meal Plans</a>
+                    </div>
+                </div>
+                <div class="card animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <div class="card-img" style="background: linear-gradient(135deg, #9c27b0 0%, #673ab7 100%);">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Virtual Support Groups</h3>
+                        <p>Connect with other expecting and new mothers in our moderated community forums and live video support groups.</p>
+                        <a href="#" class="card-button">Join Community</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Stories From Our Community</h2>
+                    <p>Hear from mothers who've found support and guidance through our resources</p>
+                </div>
+
+                <div class="testimonial-slider">
+                    <div class="testimonial active">
+                        <div class="testimonial-content">
+                            "Mother's Haven was my lifeline during my pregnancy. The weekly tracker helped me understand my baby's development, and the nutrition guides kept me eating right. When I struggled with breastfeeding, their resources gave me the confidence to keep going."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                            <div class="author-info">
+                                <h4>Sarah J.</h4>
+                                <p>First-time mom, 28</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "As an older mom, I had so many questions and concerns. The 'Ask a Midwife' feature put my mind at ease, and the postpartum recovery guides were incredibly detailed. This site became my go-to resource throughout my journey."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Michelle R.">
+                            <div class="author-info">
+                                <h4>Michelle R.</h4>
+                                <p>Mom of twins, 37</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            "The community forums helped me feel less alone during my postpartum depression. Connecting with other moms who understood what I was going through made all the difference. The mental health resources were also incredibly valuable."
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Priya K.">
+                            <div class="author-info">
+                                <h4>Priya K.</h4>
+                                <p>Second-time mom, 31</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-nav">
+                        <div class="testimonial-dot active" data-index="0"></div>
+                        <div class="testimonial-dot" data-index="1"></div>
+                        <div class="testimonial-dot" data-index="2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Video Resources</h2>
+                <p>Watch our expert-led tutorials and educational content</p>
+            </div>
+
+            <div class="video-gallery">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Prenatal Yoga">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Prenatal Yoga for All Trimesters</h3>
+                        <p>30 min • Certified Instructor</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Breastfeeding">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Mastering the Breastfeeding Latch</h3>
+                        <p>15 min • Lactation Consultant</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Newborn Care">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Newborn Care Basics</h3>
+                        <p>25 min • Pediatric Nurse</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pregnancy">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pregnancy Guide</h2>
+                <p>Evidence-based information for each stage of your pregnancy journey</p>
+            </div>
+
+            <div class="tracker-container">
+                <div class="tracker-header">
+                    <h3>My Pregnancy Tracker</h3>
+                </div>
+                <div class="tracker-body">
+                    <div class="tracker-progress">
+                        <div class="tracker-progress-bar" id="pregnancyProgress" style="width: 25%"></div>
+                    </div>
+                    <div class="tracker-info">
+                        <div class="tracker-week">
+                            <h3 id="currentWeek">12</h3>
+                            <p>Weeks</p>
+                        </div>
+                        <div class="tracker-week">
+                            <h3 id="daysLeft">196</h3>
+                            <p>Days to go</p>
+                        </div>
+                        <div class="tracker-week">
+                            <h3 id="trimester">1</h3>
+                            <p>Trimester</p>
+                        </div>
+                    </div>
+                    <div class="tracker-details">
+                        <div class="tracker-baby">
+                            <h4>Your Baby This Week</h4>
+                            <ul>
+                                <li>About the size of a plum (2.1 inches)</li>
+                                <li>Fingerprints are forming</li>
+                                <li>Reflexes are developing</li>
+                                <li>Can make tiny movements</li>
+                            </ul>
+                        </div>
+                        <div class="tracker-mom">
+                            <h4>What to Expect</h4>
+                            <ul>
+                                <li>Nausea may start to improve</li>
+                                <li>Increased energy levels</li>
+                                <li>Possible visible baby bump</li>
+                                <li>First trimester screening tests</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="tracker-actions">
+                        <button class="cta-button" style="padding: 10px 25px; font-size: 1rem;">Update My Progress</button>
+                        <button class="card-button">View Full Timeline</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards-grid" style="margin-top: 60px;">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>First Trimester (Weeks 1-12)</h3>
+                        <p>Navigate early pregnancy symptoms, essential tests, and your baby's crucial developmental milestones during these foundational weeks.</p>
+                        <a href="#" class="card-button">Explore First Trimester</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Second Trimester (Weeks 13-26)</h3>
+                        <p>Experience your baby's movements, prepare for the anatomy scan, and enjoy this often more comfortable period of pregnancy.</p>
+                        <a href="#" class="card-button">Explore Second Trimester</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Third Trimester (Weeks 27-40)</h3>
+                        <p>Prepare for labor, manage late-pregnancy discomforts, and get everything ready for your baby's arrival.</p>
+                        <a href="#" class="card-button">Explore Third Trimester</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="daily-tip">
+                <h3><i class="fas fa-lightbulb"></i> Today's Pregnancy Tip</h3>
+                <p id="dailyTip">Stay hydrated! Aim for 8-10 glasses of water daily to support amniotic fluid levels and prevent constipation. Add lemon or cucumber slices for flavor if needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="postpartum">
+        <div class="container">
+            <div class="section-header">
+                <h2>Postpartum Care</h2>
+                <p>Comprehensive support for your recovery after birth</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Physical Recovery</h3>
+                        <p>Detailed guides on postpartum healing, perineal care, cesarean recovery, and when to safely resume different activities.</p>
+                        <a href="#" class="card-button">Recovery Guides</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Emotional Well-being</h3>
+                        <p>Resources for postpartum mental health, recognizing signs of depression/anxiety, and finding professional support.</p>
+                        <a href="#" class="card-button">Mental Health Resources</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Postpartum Fitness</h3>
+                        <p>Safe exercises to rebuild strength, address diastasis recti, and gradually return to your fitness routine.</p>
+                        <a href="#" class="card-button">Fitness Plans</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 80px;">
+                <h2>Postpartum Recovery Timeline</h2>
+                <p>What to expect in the days, weeks, and months after birth</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>First 24 Hours</h3>
+                        <p>Immediate postpartum care, bleeding management, initial breastfeeding support, and monitoring for complications.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-week"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>First Week</h3>
+                        <p>Uterine involution, lochia changes, perineal care, establishing breastfeeding, and newborn care basics.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>First 6 Weeks</h3>
+                        <p>Physical recovery milestones, postpartum checkup, emotional adjustment, and gradual return to activities.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Beyond 6 Weeks</h3>
+                        <p>Long-term recovery, returning to exercise, sexual health, and ongoing emotional support needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="breastfeeding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Breastfeeding & Lactation</h2>
+                <p>Expert guidance for successful nursing and milk production</p>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Proper Latching Techniques</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>A good latch is essential for comfortable, effective breastfeeding. Follow these steps:</p>
+                    <ul>
+                        <li>Position your baby so their nose is level with your nipple</li>
+                        <li>Wait for a wide open mouth before bringing baby to breast</li>
+                        <li>Aim your nipple toward the roof of baby's mouth</li>
+                        <li>Ensure baby takes a large mouthful of breast, not just the nipple</li>
+                        <li>Look for flanged lips (like fish lips) and audible swallowing</li>
+                    </ul>
+                    <p>Signs of a good latch include comfortable nursing, rounded cheeks, and rhythmic sucking/swallowing.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Best Breastfeeding Positions</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Experiment with different positions to find what works best for you and your baby:</p>
+                    <ul>
+                        <li><strong>Cradle Hold:</strong> Classic position with baby's head in the crook of your arm</li>
+                        <li><strong>Cross-Cradle Hold:</strong> More control for newborns, opposite arm supports baby</li>
+                        <li><strong>Football Hold:</strong> Ideal for c-section recovery or twins, baby tucked under arm</li>
+                        <li><strong>Side-Lying Position:</strong> Comfortable for night feedings, both lying on sides</li>
+                        <li><strong>Laid-Back Nursing:</strong> Reclined position using gravity to help baby latch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Increasing Milk Supply</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>To establish and maintain a healthy milk supply:</p>
+                    <ul>
+                        <li>Nurse frequently (8-12 times per 24 hours in early weeks)</li>
+                        <li>Ensure proper latch and positioning</li>
+                        <li>Offer both breasts at each feeding</li>
+                        <li>Practice skin-to-skin contact</li>
+                        <li>Stay hydrated and eat a balanced diet</li>
+                        <li>Consider pumping after feedings if needed</li>
+                        <li>Try galactagogues like oats, fenugreek, or brewer's yeast</li>
+                        <li>Rest when possible (sleep impacts prolactin levels)</li>
+                    </ul>
+                    <p>Most importantly, remember that perceived low supply is common but actual low supply is rare. Consult a lactation consultant if concerned.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Common Challenges & Solutions</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>Sore Nipples:</strong> Usually indicates latch issues. Check positioning, use lanolin cream, and let nipples air dry after feedings.</p>
+                    <p><strong>Engorgement:</strong> Nurse frequently, apply warm compresses before feeding and cold compresses after, hand express for comfort.</p>
+                    <p><strong>Mastitis:</strong> Continue nursing, rest, massage affected area, use warm compresses, and consult a doctor if fever develops.</p>
+                    <p><strong>Thrush:</strong> Look for shiny, flaky nipples and white patches in baby's mouth. Both mother and baby need treatment.</p>
+                    <p><strong>Low Supply Concerns:</strong> Track wet/dirty diapers (6+ per day is good), monitor weight gain, and consult a lactation professional.</p>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 60px;">
+                <h3>Breastfeeding Essentials Toolkit</h3>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                        <i class="fas fa-pump-medical"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pumping Guide</h3>
+                        <p>How to choose a pump, establish a pumping routine, and store milk safely.</p>
+                        <a href="#" class="card-button">View Guide</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Nursing Nutrition</h3>
+                        <p>Dietary recommendations for optimal milk production and maternal health.</p>
+                        <a href="#" class="card-button">View Guide</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Returning to Work</h3>
+                        <p>Strategies for maintaining supply, pumping at work, and your legal rights.</p>
+                        <a href="#" class="card-button">View Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nutrition">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nutrition & Meal Plans</h2>
+                <p>Fueling your body for pregnancy and breastfeeding</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Essential Nutrients</h3>
+                        <p>Key nutrients needed during pregnancy and lactation, including folic acid, iron, calcium, DHA, and protein, with food sources for each.</p>
+                        <a href="#" class="card-button">View Nutrient Guide</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Healthy Recipes</h3>
+                        <p>Nutrient-dense, easy-to-prepare meals designed for expectant and nursing mothers, including options for dietary restrictions.</p>
+                        <a href="#" class="card-button">View Recipes</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Foods to Avoid</h3>
+                        <p>Comprehensive list of foods that pose risks during pregnancy and lactation, with safer alternatives.</p>
+                        <a href="#" class="card-button">View Safety Guide</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="daily-tip">
+                <h3><i class="fas fa-utensil-spoon"></i> Today's Nutrition Tip</h3>
+                <p id="nutritionTip">Include omega-3 rich foods like salmon, walnuts, and chia seeds 2-3 times per week to support your baby's brain and eye development. For vegetarians, flaxseeds and algae-based DHA supplements are excellent alternatives.</p>
+            </div>
+
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Trimester-Specific Nutrition</h2>
+                <p>Tailored dietary recommendations for each stage of pregnancy</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #ff9a9e;">
+                        <i class="fas fa-1"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>First Trimester</h3>
+                        <p>Focus on folate-rich foods, small frequent meals for nausea, ginger for morning sickness, and staying hydrated despite food aversions.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #a1c4fd;">
+                        <i class="fas fa-2"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Second Trimester</h3>
+                        <p>Increase iron and protein intake, add calcium-rich foods, include fiber to prevent constipation, and maintain steady blood sugar.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #84fab0;">
+                        <i class="fas fa-3"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Third Trimester</h3>
+                        <p>Emphasize omega-3s for brain development, continue iron-rich foods, smaller meals for heartburn, and hydration for amniotic fluid.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #fbc2eb;">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Postpartum & Breastfeeding</h3>
+                        <p>Extra calories for milk production, continued prenatal vitamins, hydration, and galactagogue foods if desired. Watch for food sensitivities in baby.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ask">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ask a Midwife or Doctor</h2>
+                <p>Get personalized answers from maternal health professionals</p>
+            </div>
+
+            <div class="form-container">
+                <form id="askForm">
+                    <div class="form-group">
+                        <label for="askName">Your Name</label>
+                        <input type="text" id="askName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="askEmail">Email Address</label>
+                        <input type="email" id="askEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="askTopic">Topic</label>
+                        <select id="askTopic" required>
+                            <option value="">Select a topic</option>
+                            <option value="pregnancy">Pregnancy Questions</option>
+                            <option value="postpartum">Postpartum Recovery</option>
+                            <option value="breastfeeding">Breastfeeding/Lactation</option>
+                            <option value="nutrition">Prenatal/Postpartum Nutrition</option>
+                            <option value="medication">Medication Safety</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="askQuestion">Your Question</label>
+                        <textarea id="askQuestion" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="askDueDate">Due Date or Baby's Birth Date (if applicable)</label>
+                        <input type="date" id="askDueDate">
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Submit Question</button>
+                </form>
+            </div>
+
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Is it safe to exercise during pregnancy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Yes, exercise is generally safe and beneficial during pregnancy if you have an uncomplicated pregnancy. The American College of Obstetricians and Gynecologists recommends at least 150 minutes of moderate-intensity aerobic activity per week for pregnant women.</p>
+                    <p>Recommended activities include:</p>
+                    <ul>
+                        <li>Walking</li>
+                        <li>Swimming</li>
+                        <li>Prenatal yoga</li>
+                        <li>Stationary cycling</li>
+                        <li>Low-impact aerobics</li>
+                    </ul>
+                    <p>Avoid activities with high risk of falling or abdominal trauma, and stop any exercise that causes pain, dizziness, or shortness of breath. Always consult your healthcare provider before starting or continuing an exercise routine during pregnancy.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>What are the signs of postpartum depression?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Postpartum depression (PPD) symptoms may include:</p>
+                    <ul>
+                        <li>Persistent sadness, anxiety, or "empty" mood</li>
+                        <li>Irritability or anger</li>
+                        <li>Feelings of guilt, worthlessness, or hopelessness</li>
+                        <li>Loss of interest or pleasure in activities</li>
+                        <li>Fatigue or abnormal decrease in energy</li>
+                        <li>Difficulty concentrating or making decisions</li>
+                        <li>Sleep disturbances (sleeping too much or too little)</li>
+                        <li>Appetite changes</li>
+                        <li>Thoughts of harming yourself or your baby</li>
+                    </ul>
+                    <p>If these symptoms last more than two weeks or interfere with your ability to care for yourself or your baby, seek professional help immediately. PPD is treatable with therapy, support groups, and sometimes medication.</p>
+                </div>
+            </div>
+
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>How can I tell if my baby is getting enough breastmilk?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Signs your baby is getting enough milk include:</p>
+                    <ul>
+                        <li>8-12 feedings per 24 hours in early weeks</li>
+                        <li>Audible swallowing during feedings</li>
+                        <li>Baby seems content after feedings</li>
+                        <li>Breasts feel softer after feeding</li>
+                        <li>6+ wet diapers and 3-4 dirty diapers per day after day 5</li>
+                        <li>Steady weight gain (after initial newborn weight loss)</li>
+                    </ul>
+                    <p>Contact a lactation consultant or pediatrician if you're concerned about milk intake, especially if baby seems lethargic, has fewer than 6 wet diapers, or isn't gaining weight appropriately.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="community">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join Our Supportive Community</h2>
+                <p>Connect with other mothers, share experiences, and find encouragement</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Discussion Forums</h3>
+                        <p>Join topic-specific conversations about pregnancy, postpartum, breastfeeding, and parenting in our moderated forums.</p>
+                        <a href="#" class="card-button">Browse Forums</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Local Support Groups</h3>
+                        <p>Find in-person and virtual support groups in your area for expecting and new mothers.</p>
+                        <a href="#" class="card-button">Find Groups</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Live Events</h3>
+                        <p>Participate in our weekly live Q&As, educational webinars, and virtual meetups with experts.</p>
+                        <a href="#" class="card-button">View Schedule</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 60px;">
+                <h2>Featured Community Discussions</h2>
+            </div>
+
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #a1c4fd;">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>First Trimester Worries</h3>
+                        <p>"I'm 8 weeks along and constantly worried something's wrong. Anyone else feel this way?"</p>
+                        <p><strong>24 comments</strong> • Last updated 2 hours ago</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #ff9a9e;">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Postpartum Recovery Tips</h3>
+                        <p>"Share your best recovery tips after vaginal birth - what helped you most?"</p>
+                        <p><strong>47 comments</strong> • Last updated 1 day ago</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #84fab0;">
+                        <i class="fas fa-pump-medical"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Returning to Work & Pumping</h3>
+                        <p>"How do you maintain supply when going back to work? Need advice!"</p>
+                        <p><strong>32 comments</strong> • Last updated 3 days ago</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background: #fbc2eb;">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Newborn Sleep Strategies</h3>
+                        <p>"What worked for you to get longer stretches of sleep in the early weeks?"</p>
+                        <p><strong>58 comments</strong> • Last updated 5 hours ago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>We're here to help with any questions or concerns</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Email Support</h3>
+                        <p>For general inquiries and non-urgent questions, our team typically responds within 24-48 hours.</p>
+                        <a href="mailto:support@mothershaven.com" class="card-button">support@mothershaven.com</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Helpline</h3>
+                        <p>Our maternal health helpline is staffed by trained professionals Monday-Friday, 8am-8pm EST.</p>
+                        <a href="tel:+18005551234" class="card-button">1-800-555-1234</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Visit Us</h3>
+                        <p>We have physical locations in several major cities offering prenatal classes and support groups.</p>
+                        <a href="#" class="card-button">Find Locations</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container" style="margin-top: 60px;">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Your Name</label>
+                        <input type="text" id="contactName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email Address</label>
+                        <input type="email" id="contactEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <select id="contactSubject">
+                            <option value="general">General Inquiry</option>
+                            <option value="support">Support Request</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMessage">Your Message</label>
+                        <textarea id="contactMessage" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mother's Haven</h3>
+                    <p>Your trusted companion through pregnancy, birth, and beyond. Providing evidence-based information and compassionate support for every stage of motherhood.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="pregnancy">Pregnancy Guide</a></li>
+                        <li><a href="#" class="nav-link" data-page="postpartum">Postpartum Care</a></li>
+                        <li><a href="#" class="nav-link" data-page="breastfeeding">Breastfeeding</a></li>
+                        <li><a href="#" class="nav-link" data-page="nutrition">Nutrition</a></li>
+                        <li><a href="#" class="nav-link" data-page="community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Downloadable Guides</a></li>
+                        <li><a href="#">Expert Articles</a></li>
+                        <li><a href="#">Video Library</a></li>
+                        <li><a href="#">Pregnancy Calculator</a></li>
+                        <li><a href="#">Local Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to receive weekly pregnancy tips, nutrition advice, and exclusive resources.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mother's Haven. All rights reserved. This site is for informational purposes only and does not constitute medical advice. Always consult your healthcare provider.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Update active nav link
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target section
+                    sections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetPage) {
+                            section.classList.add('active');
+                            // Smooth scroll to top of section
+                            window.scrollTo({
+                                top: section.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                    
+                    // Close mobile menu if open
+                    document.getElementById('navMenu').classList.remove('show');
+                });
+            });
+            
+            // Mobile menu toggle
+            document.getElementById('menuBtn').addEventListener('click', function() {
+                const menu = document.getElementById('navMenu');
+                menu.classList.toggle('show');
+                
+                // Toggle menu icon
+                const icon = this.querySelector('i');
+                if (menu.classList.contains('show')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isOpen = content.classList.contains('open');
+                    
+                    // Close all accordions first
+                    document.querySelectorAll('.accordion-content').forEach(acc => {
+                        acc.classList.remove('open');
+                    });
+                    
+                    document.querySelectorAll('.accordion-header i').forEach(icon => {
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    });
+                    
+                    // Open clicked accordion if it wasn't open
+                    if (!isOpen) {
+                        content.classList.add('open');
+                        const icon = this.querySelector('i');
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                });
+            });
+            
+            // Testimonial slider
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.testimonial-dot');
+            let currentTestimonial = 0;
+            
+            function showTestimonial(index) {
+                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                testimonials[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentTestimonial = index;
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    showTestimonial(index);
+                });
+            });
+            
+            // Auto-rotate testimonials
+            setInterval(() => {
+                let nextIndex = currentTestimonial + 1;
+                if (nextIndex >= testimonials.length) nextIndex = 0;
+                showTestimonial(nextIndex);
+            }, 8000);
+            
+            // Form submissions
+            document.getElementById('askForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your question! Our midwife team will respond within 48 hours.');
+                this.reset();
+            });
+            
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+            
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            const darkModeIcon = darkModeToggle.querySelector('i');
+            
+            // Check for saved user preference
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.body.classList.add('dark-mode');
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+            }
+            
+            darkModeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    darkModeIcon.classList.remove('fa-moon');
+                    darkModeIcon.classList.add('fa-sun');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    darkModeIcon.classList.remove('fa-sun');
+                    darkModeIcon.classList.add('fa-moon');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Pregnancy tracker simulation
+            function updatePregnancyTracker() {
+                // This would normally use the user's actual due date
+                // For demo purposes, we'll simulate a pregnancy at 12 weeks
+                const currentWeek = 12;
+                const daysLeft = 196;
+                const trimester = currentWeek <= 12 ? 1 : currentWeek <= 27 ? 2 : 3;
+                const progressPercent = (currentWeek / 40) * 100;
+                
+                document.getElementById('currentWeek').textContent = currentWeek;
+                document.getElementById('daysLeft').textContent = daysLeft;
+                document.getElementById('trimester').textContent = trimester;
+                document.getElementById('pregnancyProgress').style.width = `${progressPercent}%`;
+                
+                // Update baby and mom info based on week
+                // In a real app, this would pull from a database or API
+                if (currentWeek <= 12) {
+                    // First trimester info
+                } else if (currentWeek <= 27) {
+                    // Second trimester info
+                } else {
+                    // Third trimester info
+                }
+            }
+            
+            updatePregnancyTracker();
+            
+            // Daily tips rotation
+            const pregnancyTips = [
+                "Take prenatal vitamins with at least 400mcg folic acid daily to support neural tube development in early pregnancy.",
+                "Practice pelvic floor exercises (Kegels) regularly to prepare for labor and postpartum recovery. Aim for 3 sets of 10-15 contractions daily.",
+                "Avoid raw fish, unpasteurized dairy, undercooked meats, and deli meats unless heated to reduce infection risks during pregnancy.",
+                "Get adequate sleep by sleeping on your left side to improve circulation to your baby. Use pillows for support between your knees and under your belly.",
+                "Stay active with pregnancy-safe exercises like walking, swimming, or prenatal yoga for 30 minutes most days, unless advised otherwise by your provider."
+            ];
+            
+            const nutritionTips = [
+                "Include iron-rich foods like spinach, lentils, lean meats, and fortified cereals to prevent anemia. Pair with vitamin C sources to enhance absorption.",
+                "Consume calcium-rich foods such as dairy, leafy greens, almonds, and fortified plant milks to support your baby's bone development (1,000mg daily).",
+                "Eat small, frequent meals (every 2-3 hours) to manage nausea and maintain steady energy levels. Include protein and complex carbs in each snack.",
+                "Stay hydrated with water, herbal teas, and water-rich fruits like watermelon. Aim for at least 8-10 glasses daily, more if exercising or in hot weather.",
+                "Choose whole grains over refined grains for sustained energy and fiber to prevent constipation. Options include quinoa, brown rice, oats, and whole wheat."
+            ];
+            
+            function updateDailyTips() {
+                const randomPregnancyTip = pregnancyTips[Math.floor(Math.random() * pregnancyTips.length)];
+                const randomNutritionTip = nutritionTips[Math.floor(Math.random() * nutritionTips.length)];
+                
+                document.getElementById('dailyTip').textContent = randomPregnancyTip;
+                document.getElementById('nutritionTip').textContent = randomNutritionTip;
+            }
+            
+            // Update tips on page load and every 12 hours
+            updateDailyTips();
+            setInterval(updateDailyTips, 43200000);
+            
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.card, .feature-card, .section-header');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        element.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+        });
+    </script>
+</body>
+</html>
